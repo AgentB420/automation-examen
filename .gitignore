@@ -10,3 +10,5 @@ Thumbs.db
 # Python bestanden
 __pycache__/
 .venv
+
+.env
