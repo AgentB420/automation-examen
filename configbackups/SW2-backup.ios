@@ -1,0 +1,127 @@
+Building configuration...
+
+Current configuration : 1789 bytes
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+service password-encryption
+!
+hostname SW2
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$5CXp$qiapT8icnQmCKfB21t3Li1
+!
+username admin secret 5 $1$Ij7Y$KxFm5YuybIEXt2qBfEDYk1
+!
+!
+no aaa new-model
+system mtu routing 1500
+ip routing
+no ip domain-lookup
+ip domain-name cisco.local
+!
+!
+login block-for 120 attempts 3 within 60
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+ip ssh version 2
+!
+!
+!
+interface FastEthernet0/1
+!
+interface FastEthernet0/2
+!
+interface FastEthernet0/3
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ ip address 10.0.0.200 255.255.255.0
+!
+ip classless
+no ip http server
+ip http secure-server
+!
+!
+!
+!
+!
+banner motd ^CC
+----------------------------------
+- All hail hypnotoad -
+----------------------------------
+^C
+!
+line con 0
+ logging synchronous
+line vty 0 4
+ exec-timeout 0 0
+ logging synchronous
+ login local
+ transport input ssh
+line vty 5 15
+ exec-timeout 0 0
+ logging synchronous
+ login local
+ transport input ssh
+!
+ntp server 45.87.78.35
+end

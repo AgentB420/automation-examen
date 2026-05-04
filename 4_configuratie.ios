@@ -1,0 +1,9 @@
+service password-encryption
+no ip http server
+ntp server 45.87.78.35
+login block-for 120 attempts 3 within 60
+banner motd ^C
+----------------------------------
+- All hail hypnotoad -
+----------------------------------
+^C
