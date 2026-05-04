@@ -1,3 +1,5 @@
+from sqlite3 import Connection
+
 from netmiko import ConnectHandler
 from getpass import getpass
 
@@ -18,12 +20,10 @@ for ip in switch_ip:
         "password": password,
         "secret": secret
     }
-    try:
-        connection = ConnectHandler(**switch)
-        connection.enable()
-        result = connection.send_command(
-          "show running-config | include version")
-        print(result)
-        connection.disconnect()
-    except Exception as e:
-        print(f"Failed to connect to {ip}: {e}")
+    
+    connection = ConnectHandler(**switch)
+    connection.enable()
+    result = connection.send_command(
+        "show running-config | include version")
+
+    print(result)
